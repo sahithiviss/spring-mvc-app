@@ -30,12 +30,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     @Transactional
     public List<Employee> listAll() {
-        List<Employee> list = new ArrayList<>();
-        this.employeeRepository.findAll().forEach(employee -> {
-            System.out.println(employee);
-            list.add(employee);
-        });
-        return list;
+        return this.employeeRepository.findAll();
     }
 
     @Override
