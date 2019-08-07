@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.List;
 import java.util.Arrays;
 
@@ -58,16 +60,22 @@ public class EmployeeController {
 
     @PostMapping("/register")
     public String registerUser( @Valid @ModelAttribute("employee") Employee employee,
-                                BindingResult bindingResult){
+                                BindingResult bindingResult) throws IOException {
         System.out.println("*****************************************************");
         System.out.println("Inside the register method of employee controller..");
         System.out.println(employee.getName().length());
         if(bindingResult.hasErrors()){
             System.out.println("Error "+bindingResult.toString());
-            return "register";
+            //return "register";
+            throw  new ArithmeticException("Exception occurred");
         }
 
         this.employeeService.saveEmployee(employee);
         return "dashboard";
+    }
+
+    @ExceptionHandler(IOException.class)
+    public String handleException(HttpServletRequest request, Exception ex){
+        return "error";
     }
 }
