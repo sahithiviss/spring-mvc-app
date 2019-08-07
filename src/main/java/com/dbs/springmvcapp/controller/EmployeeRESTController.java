@@ -16,8 +16,9 @@ public class EmployeeRESTController {
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping(value = "/employees", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/employees")
     public List<Employee> listAll(){
+        System.out.println("Inside the list all method....");
         return this.employeeService.listAll();
     }
 
