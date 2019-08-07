@@ -1,6 +1,5 @@
 <!doctype html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html lang="en">
 <head>
@@ -21,13 +20,7 @@
 
 
     </tr>
-    <c:forEach items="${employees}" var="employee">
-        <tr>
-            <td>${employee}</td>
-            <td>${employee}</td>
 
-        </tr>
-    </c:forEach>
 </table>
 
 </body>

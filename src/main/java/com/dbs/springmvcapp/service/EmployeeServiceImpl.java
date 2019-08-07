@@ -31,7 +31,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Transactional
     public List<Employee> listAll() {
         List<Employee> list = new ArrayList<>();
-        this.employeeRepository.findAll().forEach(employee -> list.add(employee));
+        this.employeeRepository.findAll().forEach(employee -> {
+            System.out.println(employee);
+            list.add(employee);
+        });
         return list;
     }
 
