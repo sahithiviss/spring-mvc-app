@@ -49,4 +49,16 @@ public class EmployeeController {
         model.addAttribute("employees", employees);
         return "list";
     }
+
+    @GetMapping("/register")
+    public String showRegistrationForm(){
+        return "registration";
+    }
+
+    @PostMapping("/register")
+    public String registerUser(@RequestParam("name")String name, @RequestParam("depName") String depName){
+        Employee employee = new Employee();
+        this.employeeService.saveEmployee(employee);
+        return "dashboard";
+    }
 }

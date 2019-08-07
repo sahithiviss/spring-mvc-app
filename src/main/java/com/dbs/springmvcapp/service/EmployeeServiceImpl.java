@@ -23,7 +23,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     @Transactional
     public Employee saveEmployee(Employee employee) {
-
         return employeeRepository.save(employee);
     }
 
