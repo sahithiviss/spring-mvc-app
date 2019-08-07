@@ -1,4 +1,6 @@
 <!doctype html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +10,8 @@
     <title>Success</title>
 </head>
 <body>
-    <h1>Logged in successfully !!</h1>
+    <h1>Logged in successfully ! ${user}</h1>
+
+
 </body>
 </html>
