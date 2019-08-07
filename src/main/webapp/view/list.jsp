@@ -13,6 +13,7 @@
 <body>
 
 <h1>Employees </h1>
+<a href="/users/register">Register New User</a>
 
 <table border="1">
     <tr>
@@ -23,8 +24,8 @@
     </tr>
     <c:forEach items="${employees}" var="employee">
         <tr>
-            <td>${employee}</td>
-            <td>${employee}</td>
+            <td>${employee.id}</td>
+            <td>${employee.name}</td>
 
         </tr>
     </c:forEach>

@@ -5,10 +5,10 @@ import com.dbs.springmvcapp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Arrays;
 
@@ -44,20 +44,29 @@ public class EmployeeController {
 
     @GetMapping("/listAll")
     public String listAllEmployees(Model model){
-        List<String> employees = Arrays.asList("Vinay","Suresh");
+        List<Employee> employees = this.employeeService.listAll();
         this.employeeService.listAll().forEach(System.out::println);
         model.addAttribute("employees", employees);
         return "list";
     }
 
     @GetMapping("/register")
-    public String showRegistrationForm(){
-        return "registration";
+    public String showRegistrationForm(Model model){
+        model.addAttribute("employee", new Employee());
+        return "register";
     }
 
     @PostMapping("/register")
-    public String registerUser(@RequestParam("name")String name, @RequestParam("depName") String depName){
-        Employee employee = new Employee();
+    public String registerUser( @Valid @ModelAttribute("employee") Employee employee,
+                                BindingResult bindingResult){
+        System.out.println("*****************************************************");
+        System.out.println("Inside the register method of employee controller..");
+        System.out.println(employee.getName().length());
+        if(bindingResult.hasErrors()){
+            System.out.println("Error "+bindingResult.toString());
+            return "register";
+        }
+
         this.employeeService.saveEmployee(employee);
         return "dashboard";
     }
