@@ -1,5 +1,6 @@
 package com.dbs.springmvcapp.controller;
 
+import com.dbs.springmvcapp.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,7 +42,7 @@ public class EmployeeController {
 
     @GetMapping("/listAll")
     public String listAllEmployees(Model model){
-        List<String> employees = Arrays.asList("Suresh", "Vinay");
+        List<String> employees = Arrays.asList("Vinay","Suresh");
         //this.employeeService.listAll();
         model.addAttribute("employees", employees);
         return "list";
