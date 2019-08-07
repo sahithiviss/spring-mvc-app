@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -18,8 +19,10 @@ public class EmployeeController {
         return "login";
     }
 
-    public String loginUser(){
+    @PostMapping("/login")
+    public String loginUser(@RequestParam("name")String username, @RequestParam("password") String password){
         System.out.println("Inside the POST method of login user");
+        System.out.println("Username is "+username + " password is "+ password);
         return "sucess";
     }
 }
