@@ -20,9 +20,9 @@ public class EmployeeController {
     }
 
     @PostMapping("/login")
-    public String loginUser(@RequestParam("name")String username, @RequestParam("password") String password){
+    public String loginUser(@RequestParam("username")String username, @RequestParam("password") String password){
         System.out.println("Inside the POST method of login user");
         System.out.println("Username is "+username + " password is "+ password);
-        return "sucess";
+        return "success";
     }
 }
