@@ -1,6 +1,7 @@
 package com.dbs.springmvcapp.controller;
 
 import com.dbs.springmvcapp.model.Employee;
+import com.dbs.springmvcapp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,13 +17,14 @@ import java.util.Arrays;
 @RequestMapping("/users")
 public class EmployeeController {
 
-   // @Autowired
-    //private EmployeeService employeeService;
+    @Autowired
+    private EmployeeService employeeService;
 
     @GetMapping(value = "/login")
     public String login(Model model){
         System.out.println("Came inside the login method ");
-
+        List<Employee> listOfAllEmployees  = employeeService.listAll();
+        listOfAllEmployees.forEach(employee ->  System.out.println(employee));
         return "login";
     }
 
