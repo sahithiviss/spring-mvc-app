@@ -17,7 +17,6 @@ import java.util.Date;
 @Data
 @Entity
 @Table
-@XmlRootElement
 public class Employee {
 
     public Employee(){}
@@ -27,7 +26,6 @@ public class Employee {
     private long id;
 
     @NotBlank(message = "Name cannot be null")
-    @XmlElement
     private String name;
 
     @Range(min = 18, max = 58, message = "Employee age should be between 18 and 58")
@@ -35,6 +33,7 @@ public class Employee {
 
     private LocalDate dateOfBirth;
 
+    @Range(min = 25000, max = 75000)
     private double salary;
 
     public Employee(long id, String name){
