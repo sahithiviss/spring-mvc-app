@@ -19,6 +19,7 @@
     <tr>
         <th>Employee Id</th>
         <th> Name</th>
+        <th>Date Of Birth</th>
 
 
     </tr>
@@ -26,6 +27,7 @@
         <tr>
             <td>${employee.id}</td>
             <td>${employee.name}</td>
+            <td>${employee.dateOfBirth}</td>
 
         </tr>
     </c:forEach>

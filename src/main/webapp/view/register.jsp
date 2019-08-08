@@ -22,6 +22,10 @@
         <small><form:errors path="age" cssClass="error" /></small>
     </div>
     <div class="form-group">
+        <label>Date of Birth:</label><form:input path="dateOfBirth" cssClass="form-control" placeholder="Enter date of birth in dd-MM-yy format" />
+        <small><form:errors path="dateOfBirth" cssClass="error" /></small>
+    </div>
+    <div class="form-group">
         <label>Salary:</label><form:input path="salary" cssClass="form-control" placeholder="Enter Salary" />
         <small><form:errors path="salary" cssClass="error" /></small>
     </div>

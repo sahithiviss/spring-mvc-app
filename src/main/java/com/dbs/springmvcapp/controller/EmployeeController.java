@@ -47,7 +47,6 @@ public class EmployeeController {
     @GetMapping("/listAll")
     public String listAllEmployees(Model model){
         List<Employee> employees = this.employeeService.listAll();
-        this.employeeService.listAll().forEach(System.out::println);
         model.addAttribute("employees", employees);
         return "list";
     }
